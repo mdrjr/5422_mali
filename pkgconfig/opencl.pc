@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib/arm-linux-gnueabihf
+includedir=${prefix}/include
+
+Name: glesv2
+Description: Mali OpenCL 1.1
+Requires.private:
+Version: r5p1
+Libs: -L${libdir} -lOpenCL -lmain
+Libs.private: -lm -lpthread -ldl
+Cflags: -I${includedir}
