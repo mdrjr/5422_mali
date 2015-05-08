@@ -10,11 +10,11 @@ install:
 	rm -fr $(libdir)/libGLESv1_CM.so
 	rm -fr $(libdir)/libGLESv2.so
 	rm -fr $(libdir)/mali-egl
-	cp -aRP mali_libs/* $(libdir)
+	cp -aRP lib* $(libdir)
 	
 	# Mali Headers
 	rm -rf $(includedir)/EGL $(includedir)/GLES $(includedir)/GLES2 $(includedir)/GLES3 $(includedir)/KHR $(includedir)/C1 $(includedir)/CL_1_2
-	cp -aRP mali_headers/* /usr/include
+	cp -aRP ../headers/* /usr/include
 	
 	# PKG Config
 	rm -fr $(pkgconfigdir)/glesv*.pc $(pkgconfigdir)/egl.pc $(pkgconfigdir)/opencl.pc
