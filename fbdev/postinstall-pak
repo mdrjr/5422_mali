@@ -1,7 +1,15 @@
 #!/bin/sh
+INCLUDE="/usr/include"
+PKGCONFIG="/usr/lib/arm-linux-gnueabihf/pkgconfig"
+PKGDIR="/usr/share/mali"
 
 # Install Mali alternative
 update-alternatives --install /etc/ld.so.conf.d/arm-linux-gnueabihf_EGL.conf arm-linux-gnueabihf_egl_conf /usr/lib/arm-linux-gnueabihf/mali-egl/ld.so.conf 1
 
 # Set Mali as the default egl impl
 update-alternatives --set arm-linux-gnueabihf_egl_conf /usr/lib/arm-linux-gnueabihf/mali-egl/ld.so.conf
+
+# cheat on Ubuntu
+cp -aRP $PKGDIR/headers/* $INCLUDE
+rm -fr $PKGCONFIG/egl*.pc $PKGCONFIG/gles*.pc
+cp -aRP $PKGDIR/pkgconfig/* $PKGCONFIG
