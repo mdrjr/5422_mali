@@ -1,6 +1,6 @@
 libdir := /usr/lib/arm-linux-gnueabihf/mali-egl
 includedir := /usr/include
-pkgconfigdir := /usr/lib/arm-linux-gnueabihf/pkgconfig
+pkgconfigdir := $(libdir)/pkgconfig
 
 install:
 	# Mali Binaries
