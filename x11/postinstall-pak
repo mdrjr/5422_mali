@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Install Mali alternative
+update-alternatives --install /etc/ld.so.conf.d/arm-linux-gnueabihf_EGL.conf arm-linux-gnueabihf_egl_conf /usr/lib/arm-linux-gnueabihf/mali-egl/ld.so.conf 1
+
+# Set Mali as the default egl impl
+update-alternatives --set arm-linux-gnueabihf_egl_conf /usr/lib/arm-linux-gnueabihf/mali-egl/ld.so.conf
