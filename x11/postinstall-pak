@@ -9,6 +9,13 @@ update-alternatives --install /etc/ld.so.conf.d/arm-linux-gnueabihf_EGL.conf arm
 # Set Mali as the default egl impl
 update-alternatives --set arm-linux-gnueabihf_egl_conf /usr/lib/arm-linux-gnueabihf/mali-egl/ld.so.conf
 
+# Links
+unlink /usr/lib/arm-linux-gnueabihf/libEGL.so
+ln -s /usr/lib/arm-linux-gnueabihf/mali-egl/libmali.so /usr/lib/arm-linux-gnueabihf/libEGL.so
+ln -s /usr/lib/arm-linux-gnueabihf/mali-egl/libmali.so /usr/lib/arm-linux-gnueabihf/libGLESv2.so
+ln -s /usr/lib/arm-linux-gnueabihf/mali-egl/libmali.so /usr/lib/arm-linux-gnueabihf/libGLESv1_CM.so
+ln -s /usr/lib/arm-linux-gnueabihf/mali-egl/libmali.so /usr/lib/arm-linux-gnueabihf/libOpenCL.so
+
 # cheat on Ubuntu
 cp -aRP $PKGDIR/headers/* $INCLUDE
 rm -fr $PKGCONFIG/egl*.pc $PKGCONFIG/gles*.pc
