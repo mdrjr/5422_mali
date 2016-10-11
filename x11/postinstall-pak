@@ -20,3 +20,5 @@ ln -s /usr/lib/arm-linux-gnueabihf/mali-egl/libmali.so /usr/lib/arm-linux-gnueab
 cp -aRP $PKGDIR/headers/* $INCLUDE
 rm -fr $PKGCONFIG/egl*.pc $PKGCONFIG/gles*.pc
 cp -aRP $PKGDIR/pkgconfig/* $PKGCONFIG
+
+usermod -a -G video odroid
